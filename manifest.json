@@ -1,0 +1,12 @@
+{
+  "spec": 3,
+  "type": "plugin",
+  "id": "waguri-gif",
+  "version": "1.0.0",
+  "display": {
+    "name": "Waguri GIF",
+    "description": "When you type 'waguri', it sends a random Kaoruko Waguri GIF from Tenor.",
+    "authors": [{ "name": "saguasay" }]
+  },
+  "main": "index.js"
+}
