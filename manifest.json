@@ -1,0 +1,9 @@
+{
+  "name": "Waguri GIF",
+  "description": "When you type 'waguri', it sends a random Kaoruko Waguri GIF from Tenor.",
+  "authors": [{ "name": "saguasay" }],
+  "main": "index.js",
+  "vendetta": {
+    "icon": "ic_message"
+  }
+}
