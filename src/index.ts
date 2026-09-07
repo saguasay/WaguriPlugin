@@ -1,7 +1,4 @@
-import { before } from "@vendetta/patcher";
-import { findByProps } from "@vendetta/metro";
-
-const WAGURI_GIFS = [
+var WAGURI_GIFS = [
   "https://media1.tenor.com/m/t-u0MbTWh7UAAAAC/kaoruko-waguri.gif",
   "https://media1.tenor.com/m/ttJH4ujwboMAAAAC/kaoruko-waguri-kaoruko.gif",
   "https://media1.tenor.com/m/qRT07oUZbDkAAAAC/waguri-kaoruko-kaoruhana.gif",
@@ -9,23 +6,23 @@ const WAGURI_GIFS = [
   "https://media1.tenor.com/m/3n3Vf_m0kPcAAAAC/kaoruko-waguri-waguri-kaoruko.gif",
 ];
 
-function getRandomGif(): string {
+function getRandomGif() {
   return WAGURI_GIFS[Math.floor(Math.random() * WAGURI_GIFS.length)];
 }
 
-let unpatch: (() => void) | undefined;
+var unpatch;
 
 export default {
-  onLoad: () => {
-    const MessageActions = findByProps("sendMessage", "sendBotMessage");
-    unpatch = before("sendMessage", MessageActions, (args) => {
-      const message = args[1];
+  onLoad: function() {
+    var MessageActions = findByProps("sendMessage", "sendBotMessage");
+    unpatch = before("sendMessage", MessageActions, function(args) {
+      var message = args[1];
       if (typeof message?.content === "string" && message.content.trim().toLowerCase() === "waguri") {
         message.content = getRandomGif();
       }
     });
   },
-  onUnload: () => {
+  onUnload: function() {
     unpatch?.();
     unpatch = undefined;
   },
